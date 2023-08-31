@@ -1,0 +1,23 @@
+# config/doctrine/Post.orm.yml
+
+App\Entity\Post:
+  type: entity
+  table: posts  # The name of the database table
+
+  fields:
+    id:
+      type: integer
+      id: true
+
+    post:
+      type: text
+      nullable: false
+
+    createdAt:
+      type: datetime
+      nullable: true
+
+  lifecycleCallbacks:
+    prePersist: [ setCreatedAt ]
+
+  repositoryClass: App\Repository\PostRepository

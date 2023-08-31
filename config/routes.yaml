@@ -1,0 +1,30 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+main_page:
+    path: /
+    controller: App\Controller\PageController::index
+    methods: GET
+
+addpost:
+    path: /addpost
+    controller: App\Controller\PageController::addPost
+    methods: [GET, POST]
+
+delete_post:
+    path:       /delete/{id}
+    controller: App\Controller\PageController::deletePost
+    methods:    [DELETE]
+
+edit_post:
+    path:       /edit/{id}
+    controller: App\Controller\PageController::editPost
+    methods: [GET, POST]
+
+all_posts:
+     path:       /allposts
+     controller: App\Controller\PageController::getAllPosts
+     methods: [GET]

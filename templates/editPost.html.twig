@@ -1,0 +1,11 @@
+{% block body %}
+{{ form_start(editForm) }}
+<h1 class="text-center">Edit post</h1>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <div class="form-group W-50 m-auto pb-4">
+        {{ form_label(editForm.post) }}
+        {{ form_widget(editForm.post, {'attr': {'class': 'form-control'}}) }}
+    </div>
+{{ form_end(editForm) }}
+
+{% endblock %}
