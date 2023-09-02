@@ -9,7 +9,7 @@
   <form
     @submit.prevent="addPost"
     method="post"
-    action="https://localhost/mysymfony/public/addpost"
+    action="https://localhost/symfony-vue-form-boiler-plate/public/addpost"
   >
     <div class="mb-3 w-50 m-auto">
       <label for="post" class="form-label">Post</label>
@@ -42,7 +42,7 @@
         <td>
           <a
             class="btn btn-success"
-            :href="'https://localhost/mysymfony/public/edit/' + post.id"
+            :href="'https://localhost/symfony-vue-form-boiler-plate/public/edit/' + post.id"
             >Edit post</a
           >
         </td>
@@ -73,7 +73,7 @@ export default {
   methods: {
     getAllPosts: function () {
       axios
-        .get("https://localhost/mysymfony/public/allposts")
+        .get("https://localhost/symfony-vue-form-boiler-plate/public/allposts")
         .then((response) => {
           this.posts = response.data;
         })
@@ -84,7 +84,7 @@ export default {
     addPost: function (e) {
       e.preventDefault();
       axios
-        .post("https://localhost/mysymfony/public/addpost", {
+        .post("https://localhost/symfony-vue-form-boiler-plate/public/addpost", {
           data: this.postTextArea,
         })
         .then((response) => {
@@ -102,7 +102,7 @@ export default {
     },
     deletePost: function (id) {
       axios
-        .delete(`https://localhost/mysymfony/public/delete/${id}`)
+        .delete(`https://localhost/symfony-vue-form-boiler-plate/public/delete/${id}`)
         .then((response) => {
           let fillteredPosts = this.posts.filter((e) => e.id !== id);
           this.posts = fillteredPosts;

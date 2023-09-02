@@ -2,7 +2,7 @@ const Encore = require('@symfony/webpack-encore');
 
 Encore
     .setOutputPath('public/build/')
-    .setPublicPath('/mysymfony/public/build')
+    .setPublicPath('/symfony-vue-form-boiler-plate/public/build')
     .addEntry('app', './assets/js/app.js')  // Replace with your entry file
     .splitEntryChunks()
     .cleanupOutputBeforeBuild()
