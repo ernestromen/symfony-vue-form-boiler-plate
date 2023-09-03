@@ -1,17 +1,6 @@
 version: '3'
 
 services:
-  symfony:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
-    volumes:
-      - .:/var/www/html
-    # Add other necessary configurations for your Symfony service
-    depends_on:
-      - db
 
   vue:
     build:
@@ -19,10 +8,23 @@ services:
       dockerfile: assets/Dockerfile
     ports:
       - "8080:8080"
-    volumes:
-      - ./assets:/app
+    depends_on:
+      - symfony
+    # volumes:
+    #   - ./assets:/app
     # Add other necessary configurations for your Vue.js service
 
+  symfony:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    # volumes:
+    #   - .:/var/www/html
+    # Add other necessary configurations for your Symfony service
+    depends_on:
+      - db
   db:
     image: mysql # Use the official MySQL 5.7 image as the base image
     command: --default-authentication-plugin=mysql_native_password

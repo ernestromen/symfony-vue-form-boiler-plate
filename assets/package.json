@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "encore dev",
     "watch": "encore dev --watch",
-    "build": "encore production"
+    "build": "encore production",
+    "serve": "vue-cli-service serve"
   }
 }
